@@ -6,6 +6,7 @@
 .btn .material-icons {
   font-size: 20px;
   vertical-align: bottom;
+  display: inline;
 }
 
 #diagrams {

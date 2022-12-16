@@ -93,6 +93,20 @@ $("#share-button").click(function () {
   //$("#align").text(closestParties[0] + ", then " + closestParties[1] + ", then " + closestParties[2]);
 });
 
+$("#share-button").click(function () {
+  var theUrl = new URL(window.location.href);
+  theUrl.search = ""; //Remove any params
+
+
+  window.location.href = theUrl.toString();
+  //showResults(x, y);
+  
+  //$("#zScore").text(100 - Math.round(zScore));
+
+  //var closestParties = closestParty(xScore, yScore, zScore, []);
+  //$("#align").text(closestParties[0] + ", then " + closestParties[1] + ", then " + closestParties[2]);
+});
+
 
 /*
 function closestParty(xScore, yScore, zScore, excludes) {
