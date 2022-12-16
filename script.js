@@ -93,7 +93,7 @@ $("#share-button").click(function () {
   //$("#align").text(closestParties[0] + ", then " + closestParties[1] + ", then " + closestParties[2]);
 });
 
-$("#share-button").click(function () {
+$("#reset-button").click(function () {
   var theUrl = new URL(window.location.href);
   theUrl.search = ""; //Remove any params
 
