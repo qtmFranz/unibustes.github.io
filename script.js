@@ -78,6 +78,22 @@ $("#results-button").click(function () {
   //$("#align").text(closestParties[0] + ", then " + closestParties[1] + ", then " + closestParties[2]);
 });
 
+$("#share-button").click(function () {
+  const shareData = {
+    title: 'Unitus',
+    text: 'Condividi i tuoi risultati!',
+    url: window.location.href,
+  }
+  navigator.share(shareData);
+  //showResults(x, y);
+  
+  //$("#zScore").text(100 - Math.round(zScore));
+
+  //var closestParties = closestParty(xScore, yScore, zScore, []);
+  //$("#align").text(closestParties[0] + ", then " + closestParties[1] + ", then " + closestParties[2]);
+});
+
+
 /*
 function closestParty(xScore, yScore, zScore, excludes) {
   var smallestParty = "";
