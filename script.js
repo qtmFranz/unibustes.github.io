@@ -96,8 +96,8 @@ $("#share-button").click(function () {
 $("#reset-button").click(function () {
   var theUrl = new URL(window.location.href);
   theUrl.search = ""; //Remove any params
-
-
+  console.log("Dio me ammazzos");
+  //AOOOO ME FAI L'UPDATE
   window.location.href = theUrl.toString();
   //showResults(x, y);
   
