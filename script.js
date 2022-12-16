@@ -6,6 +6,20 @@ const mnzParties = {
   //"Front": [45, 4, 75],
 };
 
+$( document ).ready(function() {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const x = urlParams.get('x');
+  console.log(x)
+  const y = urlParams.get('y');
+  console.log(y)
+
+  if(x == null || y == null)
+    return;
+  
+  showResults(x, y);
+});
+
 
 $(function () {
   $('[data-toggle="tooltip"]').tooltip({trigger: 'hover'});
@@ -21,16 +35,17 @@ function calculate(section) {
   return score;
 }
 
-$("#results-button").click(function () {
+function showResults(x_val, y_val)
+{
   $("#questions").hide();
   $("#results").show();
-
   const xn = 10;
   const yn = 10;
   //const zn = 15;
 
-  var xScore = (xn * 17.533 + calculate("economics")) / (xn * 17.533 * 2) * 100;
-  var yScore = (yn * 17.533 - calculate("state")) / (2 *  yn * 17.533) * 100;
+  var xScore = (xn * 17.533 + parseFloat(x_val)) / (xn * 17.533 * 2) * 100;
+
+  var yScore = (yn * 17.533 - parseFloat(y_val)) / (2 *  yn * 17.533) * 100;
   //var zScore = (zn * 17.533 + calculate("civil")) / (2 * zn * 17.533) * 100;
 
   $("#userPin").css("left", "" + xScore + "%");
@@ -39,12 +54,31 @@ $("#results-button").click(function () {
 
   $("#xScore").text(Math.round(xScore));
   $("#yScore").text(100 - Math.round(yScore));
+}
+
+function updateUrl(x, y)
+{
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  urlParams.set("x", x);
+  urlParams.set("y", y);
+  window.location.href = window.location.href + "?" + urlParams.toString();
+}
+
+$("#results-button").click(function () {
+
+  const x = calculate("economics");
+  const y = calculate("state");
+  updateUrl(x, y);
+  //showResults(x, y);
+  
   //$("#zScore").text(100 - Math.round(zScore));
 
-  var closestParties = closestParty(xScore, yScore, zScore, []);
-  $("#align").text(closestParties[0] + ", then " + closestParties[1] + ", then " + closestParties[2]);
+  //var closestParties = closestParty(xScore, yScore, zScore, []);
+  //$("#align").text(closestParties[0] + ", then " + closestParties[1] + ", then " + closestParties[2]);
 });
 
+/*
 function closestParty(xScore, yScore, zScore, excludes) {
   var smallestParty = "";
   var smallestPartyDistance = 1000;
@@ -96,3 +130,4 @@ for (var party in mnzParties) {
   $("#scale > div").append(scalePin);
 
 }
+*/
