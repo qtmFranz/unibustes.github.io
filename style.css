@@ -40,16 +40,16 @@
 }
 
 .auth .left {
-  background-color: rgba(245, 118, 77, 0.8);
-}
-.auth .right {
   background-color: rgba(173, 235, 144, 0.8);
 }
+.auth .right {
+  background-color: rgba(255, 241, 99, 0.8);
+}
 .lib .left {
-  background-color: rgba(59, 170, 223, 0.8);
+  background-color: rgba(59, 170, 223, 0.45);
 }
 .lib .right {
-  background-color: rgba(163, 6, 226, 0.39);
+  background-color: rgba(163, 6, 226, 0.2);
 }
 
 .pin {
