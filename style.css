@@ -52,6 +52,7 @@
   background-color: rgba(163, 6, 226, 0.2);
 }
 
+
 .pin {
   position: absolute;
   z-index: 200;
@@ -178,4 +179,13 @@ select {
 
 p {
   font-size: 120%;
+}
+
+
+.buttons {
+  margin: 10;
+  position: absolute;
+  left: 46%;
+  -ms-transform: translate(-46%, -0%);
+  transform: translate(-46%, 0%);
 }

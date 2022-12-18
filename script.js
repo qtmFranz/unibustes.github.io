@@ -27,11 +27,22 @@ $(function () {
 
 function calculate(section) {
   var score = 0;
-  $("#" + section + " select").each(function (index) {
+  var cc = 0;
+  $("#" + section + " input").each(function (index) {
+    
+    if($(this).is(':checked'))
+    {
+      
+      var sign = Math.pow(-1, cc % 2)*-1;
+      console.log(sign)
+      score += $(this).val() * sign;
+      console.log(index);
 
-    var sign = Math.pow(-1, index % 2)*-1;
-    score += parseFloat($(this).val()) * sign;
+      cc+=1;
+    }
+
   });
+  cc = 0;
   return score;
 }
 
@@ -106,7 +117,19 @@ $("#reset-button").click(function () {
   //var closestParties = closestParty(xScore, yScore, zScore, []);
   //$("#align").text(closestParties[0] + ", then " + closestParties[1] + ", then " + closestParties[2]);
 });
+$("#insta-button").click(function () {
+  var theUrl = new URL(window.location.href);
+  theUrl.search = ""; //Remove any params
+  console.log("Dio me ammazzos");
+  //AOOOO ME FAI L'UPDATE
+  window.location.href = "https://www.instagram.com/renovatio.uni/";
+  //showResults(x, y);
+  
+  //$("#zScore").text(100 - Math.round(zScore));
 
+  //var closestParties = closestParty(xScore, yScore, zScore, []);
+  //$("#align").text(closestParties[0] + ", then " + closestParties[1] + ", then " + closestParties[2]);
+});
 
 /*
 function closestParty(xScore, yScore, zScore, excludes) {
